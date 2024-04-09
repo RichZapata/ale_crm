@@ -1,106 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .table {
-            width: 80%; /* Porcentaje del ancho de la página */
-            margin: auto; /* Centrar la tabla horizontalmente */
-        }
-
-        table {
-            width: 100%; /* Ocupar todo el ancho de su contenedor */
-            border-collapse: collapse; /* Fusionar bordes de las celdas */
-        }
-
-        th, td {
-            padding: 8px;
-            border: 1px solid #ddd; /* Agregar bordes a las celdas */
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2; /* Color de fondo para las celdas de encabezado */
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2; /* Color de fondo para las filas pares */
-        }
-    </style>
+    <title>Mi Proyecto</title>
+    <link rel="stylesheet" href="css/aleCrm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="table">
-        <table id="tablaDatos">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <!-- Puedes agregar más columnas si es necesario -->
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aquí se insertarán las filas dinámicamente -->
-            </tbody>
-        </table>
+    <header>
+        <div class="logo montecarlo-regular">
+            <h1>Alejandra Fotografia</h1>
+        </div>
+    </header>
+    
+
+    
+    <div class="container" id="cardContainer">
+        <!-- Aquí se mostrarán las cartas -->
     </div>
-
-    <script>
-        fetch('http://localhost:3000/api/product/3')
-        .then(response => response.json())
-        .then(data => {
-            let tablaBody = document.querySelector('#tablaDatos tbody');
-            
-            // Limpiar el contenido de la tabla antes de agregar nuevos datos
-            tablaBody.innerHTML = '';
-
-            // Iterar sobre los datos y agregar filas a la tabla
-            data.forEach(producto => {
-                let fila = document.createElement('tr');
-
-                // Crear celdas para cada propiedad del producto
-                let idCell = document.createElement('td');
-                idCell.textContent = producto.id;
-
-                let nombreCell = document.createElement('td');
-                nombreCell.textContent = producto.name;
-
-                let descripcionCell = document.createElement('td');
-                descripcionCell.textContent = producto.description;
-
-                let precioCell = document.createElement('td');
-                precioCell.textContent = producto.price;
-
-                let stockCell = document.createElement('td');
-                stockCell.textContent = producto.stock;
-
-                // Agregar las celdas a la fila
-                fila.appendChild(idCell);
-                fila.appendChild(nombreCell);
-                fila.appendChild(descripcionCell);
-                fila.appendChild(precioCell);
-                fila.appendChild(stockCell);
-
-                // Agregar la fila a la tabla
-                tablaBody.appendChild(fila);
-            });
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos:', error);
-        });
-    </script>
-</body>
+    
+    <script src="js/index.js"></script>
+    </body>
 </html>
