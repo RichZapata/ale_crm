@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="css/aleCrm.css">
+    <link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+    <div class="table"> <!-- Agregamos la clase .table al contenedor -->
+        <table id="tablaDatos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Created Date</th>
+                    <th>Created By</th>
+                    <th>Email</th>
+                    <!-- Puedes agregar más columnas si es necesario -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertarán las filas dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        fetch('http://localhost:3000/api/user/3')
+        .then(response => response.json())
+        .then(data => {
+            let tablaBody = document.querySelector('#tablaDatos tbody');
+            
+            // Limpiar el contenido de la tabla antes de agregar nuevos datos
+            tablaBody.innerHTML = '';
+
+            // Iterar sobre los datos y agregar filas a la tabla
+            data.forEach(user => {
+                let fila = document.createElement('tr');
+
+                // Crear celdas para cada propiedad del usuario
+                let idCell = document.createElement('td');
+                idCell.textContent = user.id_user;
+
+                let nameCell = document.createElement('td');
+                nameCell.textContent = user.name;
+
+                let lastNameCell = document.createElement('td');
+                lastNameCell.textContent = user.last_name ? user.last_name : '';
+
+                let createdDateCell = document.createElement('td');
+                createdDateCell.textContent = user.created_date;
+
+                let createdByCell = document.createElement('td');
+                createdByCell.textContent = user.created_by ? user.created_by : '';
+
+                let emailCell = document.createElement('td');
+                emailCell.textContent = user.email ? user.email : '';
+
+                // Agregar las celdas a la fila
+                fila.appendChild(idCell);
+                fila.appendChild(nameCell);
+                fila.appendChild(lastNameCell);
+                fila.appendChild(createdDateCell);
+                fila.appendChild(createdByCell);
+                fila.appendChild(emailCell);
+
+                // Agregar la fila a la tabla
+                tablaBody.appendChild(fila);
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos:', error);
+        });
+    </script>
+</body>
+</html>
