@@ -1,6 +1,5 @@
-/* Estilos base para todas las pantallas */
 body {
-    background-color: #ff8ae2; /* Fondo rosa pastel */
+    background-color: #ff8ae2; 
 }
 
 .card {
@@ -8,31 +7,31 @@ body {
     border-radius: 8px;
     padding: 20px;
     margin: 10px;
-    background-color: #fff; /* Fondo blanco */
+    background-color: #fff; 
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-    display: inline-block; /* Mostrar las cartas en línea */
-    width: calc(100% - 20px); /* Calcular el ancho de las cartas para tener en cuenta el margen */
-    box-sizing: border-box; /* Incluir el padding y el borde en el ancho */
-    text-align: center; /* Centrar el contenido */
+    display: inline-block; 
+    width: calc(100% - 20px); 
+    box-sizing: border-box; 
+    text-align: center; 
 }
 
 .card h2 {
-    margin-bottom: 10px; /* Espaciado inferior para el título */
-    color: #ff35f9; /* Texto rosa pastel */
+    margin-bottom: 10px;
+    color: #ff35f9; 
 }
 
 .card p {
-    margin-bottom: 20px; /* Espaciado inferior para la descripción */
-    text-align: left; /* Alinear el texto a la izquierda */
-    color: #da34ff; /* Texto morado */
+    margin-bottom: 20px;
+    text-align: left;
+    color: #da34ff; 
 }
 
 .card button {
-    display: block; /* Mostrar el botón como un bloque */
-    margin: 0 auto; /* Centrar horizontalmente */
-    background-color: #ff3475; /* Fondo rosa */
-    color: #fff; /* Texto blanco */
+    display: block;
+    margin: 0 auto;
+    background-color: #ff3475;
+    color: #fff;
     border: none;
     border-radius: 4px;
     padding: 8px 16px;
@@ -43,23 +42,21 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Media queries para tabletas */
 @media (min-width: 768px) {
     .card {
-        width: calc(50% - 20px); /* Ajustar el tamaño de las cartas para mostrar dos en una fila */
+        width: calc(50% - 20px);
     }
 }
 
-/* Media queries para pantallas de computadoras */
 @media (min-width: 1024px) {
     .card {
-        width: calc(33.333% - 20px); /* Ajustar el tamaño de las cartas para mostrar tres en una fila */
+        width: calc(33.333% - 20px);
     }
 }
 
 header {
-    background-color: #da34ff; /* Fondo rosa pastel */
-    color: #fff; /* Texto blanco */
+    background-color: #da34ff;
+    color: #fff;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -68,7 +65,7 @@ header {
 
 .logo h1 {
     margin: 0;
-    color: #fff; /* Texto blanco */
+    color: #fff;
 }
 
 .navbar {
@@ -80,4 +77,4 @@ header {
     font-family: "MonteCarlo", cursive;
     font-weight: 400;
     font-style: normal;
-  }
+}
