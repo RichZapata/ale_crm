@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="css/aleCrm.css">
+    <link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+    <div class="table"> <!-- Agregamos la clase .table al contenedor -->
+        <table id="tablaDatos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer ID</th>
+                    <th>Sale Date</th>
+                    <th>Total Amount</th>
+                    <!-- Puedes agregar más columnas si es necesario -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertarán las filas dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        fetch('http://localhost:3000/api/sale/3')
+        .then(response => response.json())
+        .then(data => {
+            let tablaBody = document.querySelector('#tablaDatos tbody');
+            
+            // Limpiar el contenido de la tabla antes de agregar nuevos datos
+            tablaBody.innerHTML = '';
+
+            // Iterar sobre los datos y agregar filas a la tabla
+            data.forEach(sale => {
+                let fila = document.createElement('tr');
+
+                // Crear celdas para cada propiedad de la venta
+                let idCell = document.createElement('td');
+                idCell.textContent = sale.id;
+
+                let customerIDCell = document.createElement('td');
+                customerIDCell.textContent = sale.customer_id;
+
+                let saleDateCell = document.createElement('td');
+                saleDateCell.textContent = sale.sale_date;
+
+                let totalAmountCell = document.createElement('td');
+                totalAmountCell.textContent = sale.total_amount;
+
+                // Agregar las celdas a la fila
+                fila.appendChild(idCell);
+                fila.appendChild(customerIDCell);
+                fila.appendChild(saleDateCell);
+                fila.appendChild(totalAmountCell);
+
+                // Agregar la fila a la tabla
+                tablaBody.appendChild(fila);
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos:', error);
+        });
+    </script>
+</body>
+</html>
